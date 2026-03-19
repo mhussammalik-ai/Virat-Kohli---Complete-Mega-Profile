@@ -7,437 +7,801 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 
-
-
-/* Full page background */
-html, body  {   
-  font-family: 'Source Sans 3', sans-serif;
-  background: url('./kohli231007.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #f8f5ef;
-  line-height: 1.7;
-  position: relative;
-}
-
-/* Add overlay to make text readable */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 22, 40, 0.7);
-  z-index: 0;
-}
-
-/* Ensure all content layers above overlay */
-.hero, section, nav, .info-grid, .stat-grid, .table-wrap, footer {
-  position: relative;
-  z-index: 1;
-}
-
-/* Hero tweaks */
-.hero {
-  padding: 100px 20px 60px;
-  text-align: center;
-  color: #fff;
-  background: transparent; 
-}
-
-/* Section tweaks */
-section {
-  background: rgba(16, 34, 64, 0.85);
-  border-radius: 16px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-}
-
-/* Info grid tweaks */
-.info-card {
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 10px;
-  padding: 16px;
-  transition: all 0.3s ease;
-}
-.info-card:hover {
-  transform: scale(1.05);
-  background: rgba(212, 175, 55, 0.25);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-}
-
-/* Stats tweaks */
-.stat-box {
-  background: rgba(212, 175, 55, 0.2);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 10px;
-  padding: 18px 12px;
-  transition: all 0.3s ease;
-}
-.stat-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
-}
-
-
-
-:root{
-  --gold:#d4af37;--gold2:#f5d76e;--navy:#0a1628;--navy2:#102240;
-  --red:#c0392b;--blue:#1a3a6e;--light:#f8f5ef;--accent:#e8c547;
-  --transition:all .35s cubic-bezier(.4,0,.2,1);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Source Sans 3',sans-serif;background:var(--navy);color:var(--light);line-height:1.7;}
-
-/* ================= HERO ================= */
-.hero{
-  background:linear-gradient(135deg,#0a1628 0%,#102240 40%,#1a3a6e 100%);
-  text-align:center;padding:60px 20px 40px;border-bottom:4px solid var(--gold);
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,0.15) 0%,transparent 70%);
-}
-.hero-flag{font-size:3rem;margin-bottom:10px;animation:wave 2s ease-in-out infinite;}
-@keyframes wave{0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);}}
-.hero h1{
-  font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);
-  font-weight:900;color:#fff;letter-spacing:2px;
-  text-shadow:0 0 40px rgba(212,175,55,0.5);
-  animation:fadeDown .8s ease both;
-}
-.hero-sub{
-  font-size:1.2rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;
-  margin:10px 0 20px;animation:fadeDown .8s .2s ease both;opacity:0;animation-fill-mode:forwards;
-}
-.hero-badges{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px;
-  animation:fadeUp .8s .4s ease both;opacity:0;animation-fill-mode:forwards;
-}
-.badge{
-  background:rgba(212,175,55,0.15);border:1px solid var(--gold);
-  color:var(--gold2);padding:6px 16px;border-radius:20px;font-size:.85rem;font-weight:600;
-  transition:var(--transition);
-}
-.badge:hover{
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  color:var(--navy);
-  transform:scale(1.1);
-}
-
-/* ================= NAV ================= */
-nav{
-  background:var(--navy2);border-bottom:2px solid var(--gold);
-  position:sticky;top:0;z-index:999;
-  display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:8px 10px;
-  backdrop-filter:blur(8px);
-}
-nav a{
-  color:var(--gold2);text-decoration:none;padding:7px 14px;border-radius:6px;
-  font-size:.82rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;
-  transition:var(--transition);white-space:nowrap;
-}
-nav a:hover{
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:var(--navy);transform:scale(1.05);
-}
-
-/* ================= SECTIONS ================= */
-section{
-  max-width:1100px;margin:30px auto;padding:35px 30px;
-  background:linear-gradient(135deg,rgba(16,34,64,0.95),rgba(10,22,40,0.98));
-  border-radius:16px;border:1px solid rgba(212,175,55,0.2);
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-  animation:sectionFade .6s ease both;
-}
-@keyframes sectionFade{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
-
-.sec-title{
-  font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;
-  color:var(--gold);border-bottom:2px solid var(--gold);
-  padding-bottom:12px;margin-bottom:25px;text-align:center;
-}
-.sub-title{
-  font-family:'Playfair Display',serif;font-size:1.3rem;
-  color:var(--gold2);margin:22px 0 10px;
-}
-p{margin-bottom:10px;color:#d0c8b8;font-size:.97rem;}
-strong{color:var(--accent);}
-
-/* ================= INFO GRID ================= */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0;}
-.info-card{
-  background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.2);
-  border-radius:10px;padding:14px 16px;
-  transition:var(--transition);
-}
-.info-card:hover{
-  background:rgba(212,175,55,0.15);
-  transform:translateY(-5px) scale(1.02);
-}
-
-/* ================= TABLES ================= */
-.table-wrap{overflow-x:auto;margin:18px 0;}
-table{width:100%;border-collapse:collapse;font-size:.88rem;transition:var(--transition);}
-th{
-  background:var(--gold);color:var(--navy);font-weight:700;padding:10px 8px;text-align:center;
-}
-td{padding:9px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07);}
-tr:nth-child(even){background:rgba(212,175,55,0.04);}
-tr:hover{background:rgba(212,175,55,0.15);transform:scale(1.01);}
-.highlight-row{background:rgba(212,175,55,0.2)!important;font-weight:700;}
-
-/* ================= COLLAPSIBLE ================= */
-.collap-btn{
-  width:100%;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);
-  color:var(--gold2);padding:13px 18px;border-radius:8px;cursor:pointer;
-  font-size:.95rem;font-weight:600;text-align:left;margin:8px 0;
-  display:flex;justify-content:space-between;align-items:center;transition:var(--transition);
-}
-.collap-btn:hover{background:rgba(212,175,55,0.2);}
-.collap-btn .arrow{transition:.3s;}
-.collap-btn.open .arrow{transform:rotate(180deg);}
-.collap-body{display:none;padding:16px;background:rgba(0,0,0,0.2);border-radius:0 0 8px 8px;margin-top:-8px;}
-.collap-body.show{display:block;transform-origin:top;animation:fadeDown .3s ease forwards;}
-
-/* ================= STAT BOXES ================= */
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0;}
-.stat-box{
-  text-align:center;background:rgba(212,175,55,0.08);
-  border:1px solid rgba(212,175,55,0.25);border-radius:10px;padding:16px 10px;
-  overflow:hidden;position:relative;
-}
-.stat-box .num{
-  font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);
-  display:inline-block;transform:translateY(100%);
-  animation:counter 2s steps(var(--target), end) forwards;
-}
-.stat-box .lbl{font-size:.75rem;color:#a09880;text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
-@keyframes counter{from{transform:translateY(100%);}to{transform:translateY(0%);}}
-
-/* ================= TIMELINE ================= */
-.timeline{position:relative;padding-left:30px;margin:20px 0;}
-.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--gold);opacity:.3;}
-.tl-item{position:relative;margin-bottom:18px;transition:var(--transition);}
-.tl-item::before{
-  content:'';position:absolute;left:-26px;top:6px;
-  width:10px;height:10px;border-radius:50%;background:var(--gold);
-}
-.tl-year{color:var(--gold);font-weight:700;font-size:.9rem;}
-.tl-text{color:#c8c0b0;font-size:.9rem;}
-
-/* ================= AWARDS ================= */
-.award-list{list-style:none;padding:0;}
-.award-list li{
-  padding:10px 16px;border-left:3px solid var(--gold);
-  margin-bottom:8px;background:rgba(212,175,55,0.05);border-radius:0 6px 6px 0;
-  color:#d0c8b8;font-size:.93rem;transition:var(--transition);
-}
-.award-list li:hover{background:rgba(212,175,55,0.15);transform:translateX(4px);}
-.award-list li strong{color:var(--gold2);}
-
-/* ================= PARTNERS ================= */
-.partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0;}
-.partner-card{
-  background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.2);
-  border-radius:10px;padding:16px;text-align:center;
-  transition:var(--transition);
-}
-.partner-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 25px rgba(212,175,55,0.25);}
-.partner-card .pname{font-weight:700;color:var(--gold2);font-size:1rem;margin-bottom:6px;}
-.partner-card .pstat{font-size:1.4rem;font-weight:900;color:var(--gold);font-family:'Playfair Display',serif;}
-.partner-card .pdesc{font-size:.8rem;color:#a09880;margin-top:4px;}
-
-/* ================= QUOTE ================= */
-.quote-box{
-  border-left:4px solid var(--gold);padding:16px 20px;
-  background:rgba(212,175,55,0.06);border-radius:0 10px 10px 0;
-  margin:20px 0;font-style:italic;color:#c8c0b0;font-size:1.05rem;
-  transition:var(--transition);
-}
-.quote-box:hover{background:rgba(212,175,55,0.15);transform:scale(1.02);}
-
-/* ================= FOOTER ================= */
-footer{
-  text-align:center;padding:30px;
-  background:var(--navy2);border-top:2px solid var(--gold);
-  color:#a09880;font-size:.9rem;transition:var(--transition);
-}
-footer strong{color:var(--gold);}
-footer:hover{color:var(--gold2);}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:600px){
-  section{padding:20px 14px;}
-  .hero h1{font-size:2rem;}
-  nav a{font-size:.75rem;padding:6px 10px;}
-  .stat-box .num{font-size:1.6rem;}
-}
-
 :root{
   --gold:#d4af37;
   --gold2:#f5d76e;
   --navy:#0a1628;
   --navy2:#102240;
-  --red:#c0392b;
-  --blue:#1a3a6e;
+  --navy3:#1a3a6e;
   --light:#f8f5ef;
-  --accent:#e8c547;
+  --muted:#d8cfbb;
+  --soft:#a89f8a;
+  --glass:rgba(16,34,64,0.78);
+  --glass2:rgba(10,22,40,0.88);
+  --border:rgba(212,175,55,0.22);
+  --shadow:0 20px 60px rgba(0,0,0,0.45);
+  --transition:all .35s cubic-bezier(.4,0,.2,1);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Source Sans 3',sans-serif;background:var(--navy);color:var(--light);line-height:1.7;}
+/* ================= GLOBAL RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-/* HERO */
-.hero{
-  background:linear-gradient(135deg,#0a1628 0%,#102240 40%,#1a3a6e 100%);
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/87/Virat_Kohli_2018.jpg');
-  background-size: cover;
-  background-position: center;
-  text-align:center;
-  padding:80px 20px 60px;
-  border-bottom:4px solid var(--gold);
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Source Sans 3',sans-serif;
+  background:
+    linear-gradient(rgba(10,22,40,0.55), rgba(10,22,40,0.75)),
+    url('./kohli231007.jpg') no-repeat center center fixed;
+  background-size:cover;
+  color:var(--light);
+  line-height:1.7;
+  overflow-x:hidden;
   position:relative;
+}
+
+/* ================= CLOUDY OVERLAY ================= */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212,175,55,0.08), transparent 30%),
+    radial-gradient(circle at 80% 25%, rgba(255,255,255,0.04), transparent 28%),
+    radial-gradient(circle at 50% 80%, rgba(212,175,55,0.06), transparent 35%),
+    linear-gradient(to bottom, rgba(10,22,40,0.25), rgba(10,22,40,0.65));
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ================= ALL MAIN CONTENT ABOVE OVERLAY ================= */
+.hero,
+nav,
+.main-layout,
+section,
+footer{
+  position:relative;
+  z-index:1;
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:100px 20px 60px;
+  background:
+    linear-gradient(135deg, rgba(10,22,40,0.75), rgba(16,34,64,0.55), rgba(26,58,110,0.45));
+  border-bottom:2px solid rgba(212,175,55,0.25);
   overflow:hidden;
-  color:#fff;
 }
+
 .hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,0.15) 0%,transparent 70%);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(212,175,55,0.12), transparent 40%);
+  pointer-events:none;
 }
+
+.hero-content{
+  max-width:900px;
+  position:relative;
+  z-index:2;
+}
+
 .hero-flag{
   font-size:3rem;
-  margin-bottom:10px;
   display:inline-block;
-  animation:wave 2s ease-in-out infinite;
+  margin-bottom:12px;
+  animation:wave 2.2s ease-in-out infinite;
 }
+
 @keyframes wave{
   0%,100%{transform:rotate(-5deg);}
   50%{transform:rotate(5deg);}
 }
+
 .hero h1{
-  font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.5rem,6vw,5.2rem);
   font-weight:900;
-  text-shadow:0 0 40px rgba(212,175,55,0.5);
-  animation:fadeDown .8s ease both;
+  letter-spacing:2px;
+  color:#fff;
+  text-shadow:0 0 30px rgba(212,175,55,0.35);
+  margin-bottom:12px;
 }
+
 .hero-sub{
-  font-size:1.2rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;
-  margin:10px 0 20px;
-  animation:fadeDown .8s .2s ease both;opacity:0;animation-fill-mode:forwards;
+  font-size:clamp(1rem,2vw,1.3rem);
+  color:var(--gold2);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:22px;
 }
+
 .hero-badges{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px;
-  animation:fadeUp .8s .4s ease both;opacity:0;animation-fill-mode:forwards;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
 }
+
 .badge{
-  background:rgba(212,175,55,0.15);
-  border:1px solid var(--gold);
+  background:rgba(212,175,55,0.12);
+  border:1px solid rgba(212,175,55,0.35);
   color:var(--gold2);
-  padding:6px 16px;border-radius:20px;font-size:.85rem;font-weight:600;
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:700;
+  backdrop-filter:blur(8px);
+  transition:var(--transition);
 }
 
-/* NAVIGATION */
-nav{
-  background:var(--navy2);
-  border-bottom:2px solid var(--gold);
-  position:sticky;top:0;z-index:999;
-  display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:8px 10px;
-}
-nav a{
-  color:var(--gold2);
-  text-decoration:none;
-  padding:7px 14px;
-  border-radius:6px;
-  font-size:.82rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;
-  transition:.3s;white-space:nowrap;
-}
-nav a:hover{
-  background:linear-gradient(90deg,var(--gold),var(--gold2));
+.badge:hover{
+  transform:translateY(-3px) scale(1.04);
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
   color:var(--navy);
-  transform:scale(1.05);
+  box-shadow:0 10px 24px rgba(212,175,55,0.22);
 }
 
-/* SECTIONS */
-section{
-  max-width:1100px;
-  margin:30px auto;
-  padding:40px 30px;
-  background:linear-gradient(135deg,rgba(16,34,64,0.95),rgba(10,22,40,0.98));
-  border-radius:16px;
-  border:1px solid rgba(212,175,55,0.2);
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity .6s ease, transform .6s ease;
+/* ================= STICKY NAV ================= */
+nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px;
+  padding:10px 12px;
+  background:rgba(10,22,40,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(212,175,55,0.22);
 }
-section.visible{opacity:1; transform:translateY(0);}
-.sec-title{
-  font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;
-  color:var(--gold);border-bottom:2px solid var(--gold);
-  padding-bottom:12px;margin-bottom:25px;text-align:center;
-}
-.sub-title{
-  font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold2);
-  margin:22px 0 10px;
-}
-p{margin-bottom:10px;color:#d0c8b8;font-size:.97rem;}
-strong{color:var(--accent);}
 
-/* INFO GRID */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0;}
-.info-card{
-  background:rgba(212,175,55,0.07);
+nav a{
+  text-decoration:none;
+  color:var(--gold2);
+  font-size:.82rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  padding:8px 14px;
+  border-radius:8px;
+  transition:var(--transition);
+  white-space:nowrap;
+}
+
+nav a:hover{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);
+  transform:translateY(-2px);
+}
+
+/* =========================================================
+   MAIN STICKY SPLIT LAYOUT
+   LEFT = TEXT SCROLLS UP
+   RIGHT = IMAGE STAYS STICKY
+========================================================= */
+.main-layout{
+  max-width:1400px;
+  margin:0 auto;
+  padding:50px 20px 80px;
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:34px;
+  align-items:start;
+}
+
+/* ================= LEFT SCROLLING CONTENT ================= */
+.scroll-column{
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
+
+/* ================= RIGHT STICKY IMAGE ================= */
+.sticky-column{
+  position:sticky;
+  top:100px;
+  align-self:start;
+}
+
+.sticky-card{
+  background:linear-gradient(135deg, rgba(16,34,64,0.82), rgba(10,22,40,0.92));
   border:1px solid rgba(212,175,55,0.2);
-  border-radius:10px;
+  border-radius:24px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(10px);
+  overflow:hidden;
+}
+
+.sticky-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(212,175,55,0.08), transparent 30%);
+  pointer-events:none;
+}
+
+.sticky-image-wrap{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  min-height:620px;
+  background:
+    linear-gradient(rgba(10,22,40,0.18), rgba(10,22,40,0.45)),
+    url('./kohli231007.jpg') no-repeat center center;
+  background-size:cover;
+  border:1px solid rgba(212,175,55,0.18);
+  box-shadow:inset 0 0 60px rgba(0,0,0,0.3);
+}
+
+.sticky-image-wrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to top, rgba(10,22,40,0.72), transparent 45%);
+  pointer-events:none;
+}
+
+.sticky-caption{
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:18px;
+  z-index:2;
   padding:14px 16px;
-  transition:.3s ease;
+  border-radius:14px;
+  background:rgba(10,22,40,0.52);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(212,175,55,0.18);
 }
-.info-card:hover{
-  transform:scale(1.05);
-  background:linear-gradient(145deg, rgba(212,175,55,0.15), rgba(245,215,110,0.1));
-  box-shadow:0 8px 25px rgba(212,175,55,0.4);
-}
-.info-card .label{font-size:.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-weight:700;}
-.info-card .value{font-size:1rem;color:#fff;font-weight:600;margin-top:4px;}
 
-/* STAT GRID */
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0;}
+.sticky-caption h3{
+  font-family:'Playfair Display',serif;
+  color:var(--gold2);
+  font-size:1.3rem;
+  margin-bottom:4px;
+}
+
+.sticky-caption p{
+  color:#e8deca;
+  font-size:.9rem;
+  margin:0;
+}
+
+/* ================= CONTENT SECTIONS ================= */
+section{
+  width:100%;
+  background:linear-gradient(135deg, var(--glass), var(--glass2));
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:34px 28px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(10px);
+  transition:var(--transition);
+}
+
+section:hover{
+  transform:translateY(-4px);
+  border-color:rgba(212,175,55,0.35);
+  box-shadow:0 24px 70px rgba(0,0,0,0.55);
+}
+
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  color:var(--gold);
+  text-align:left;
+  margin-bottom:18px;
+  padding-bottom:10px;
+  border-bottom:2px solid rgba(212,175,55,0.25);
+}
+
+.sub-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;
+  color:var(--gold2);
+  margin:20px 0 10px;
+}
+
+p{
+  color:var(--muted);
+  font-size:.98rem;
+  margin-bottom:12px;
+}
+
+strong{
+  color:var(--gold2);
+}
+
+/* ================= INFO GRID ================= */
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+
+.info-card{
+  background:rgba(212,175,55,0.08);
+  border:1px solid rgba(212,175,55,0.18);
+  border-radius:14px;
+  padding:16px;
+  transition:var(--transition);
+}
+
+.info-card:hover{
+  transform:translateY(-4px) scale(1.02);
+  background:rgba(212,175,55,0.14);
+  box-shadow:0 10px 26px rgba(212,175,55,0.16);
+}
+
+.info-card .label{
+  display:block;
+  color:var(--gold);
+  font-size:.75rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:4px;
+}
+
+.info-card .value{
+  color:#fff;
+  font-size:1rem;
+  font-weight:600;
+}
+
+/* ================= STAT GRID ================= */
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+
 .stat-box{
   text-align:center;
   background:rgba(212,175,55,0.08);
-  border:1px solid rgba(212,175,55,0.25);
-  border-radius:10px;padding:16px 10px;
-  transition:.3s ease;
+  border:1px solid rgba(212,175,55,0.22);
+  border-radius:14px;
+  padding:18px 12px;
+  transition:var(--transition);
 }
-.stat-box:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(212,175,55,0.5);}
+
+.stat-box:hover{
+  transform:translateY(-4px) scale(1.03);
+  box-shadow:0 12px 28px rgba(212,175,55,0.18);
+}
+
 .stat-box .num{
-  font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold);
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;
+  font-weight:900;
+  color:var(--gold);
+  line-height:1.1;
 }
+
 .stat-box .lbl{
-  font-size:.75rem;color:#a09880;text-transform:uppercase;letter-spacing:1px;margin-top:4px;
+  display:block;
+  margin-top:6px;
+  font-size:.75rem;
+  color:var(--soft);
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-/* TABLES */
-.table-wrap{overflow-x:auto;margin:18px 0;}
-table{width:100%;border-collapse:collapse;font-size:.88rem;}
-th{background:var(--gold);color:var(--navy);font-weight:700;padding:10px 8px;text-align:center;}
-td{padding:9px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07);}
-tr:nth-child(even){background:rgba(212,175,55,0.04);}
-tr:hover{background:rgba(212,175,55,0.1);}
-.highlight-row{background:rgba(212,175,55,0.15)!important;font-weight:700;}
-
-/* RESPONSIVE */
-@media(max-width:600px){
-  section{padding:20px 14px;}
-  .hero h1{font-size:2rem;}
-  nav a{font-size:.75rem;padding:6px 10px;}
+/* ================= TABLES ================= */
+.table-wrap{
+  overflow-x:auto;
+  margin-top:18px;
+  border-radius:14px;
+  border:1px solid rgba(212,175,55,0.14);
 }
 
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.9rem;
+  min-width:640px;
+}
 
+th{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);
+  font-weight:800;
+  padding:12px 10px;
+  text-align:center;
+}
 
+td{
+  padding:10px 10px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  color:var(--muted);
+}
+
+tr:nth-child(even){
+  background:rgba(212,175,55,0.04);
+}
+
+tr:hover{
+  background:rgba(212,175,55,0.08);
+}
+
+.highlight-row{
+  background:rgba(212,175,55,0.14) !important;
+  font-weight:700;
+}
+
+/* ================= COLLAPSIBLE BUTTONS ================= */
+.collap-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  margin-top:10px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,0.2);
+  background:rgba(212,175,55,0.08);
+  color:var(--gold2);
+  font-size:.95rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:var(--transition);
+}
+
+.collap-btn:hover{
+  background:rgba(212,175,55,0.14);
+}
+
+.collap-btn .arrow{
+  transition:transform .3s ease;
+}
+
+.collap-btn.open .arrow{
+  transform:rotate(180deg);
+}
+
+.collap-body{
+  display:none;
+  margin-top:8px;
+  padding:16px;
+  border-radius:12px;
+  background:rgba(0,0,0,0.18);
+  border:1px solid rgba(212,175,55,0.08);
+}
+
+.collap-body.show{
+  display:block;
+}
+
+/* ================= TIMELINE ================= */
+.timeline{
+  position:relative;
+  padding-left:28px;
+  margin-top:18px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:rgba(212,175,55,0.35);
+}
+
+.tl-item{
+  position:relative;
+  margin-bottom:18px;
+}
+
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-24px;
+  top:7px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 4px rgba(212,175,55,0.08);
+}
+
+.tl-year{
+  color:var(--gold);
+  font-weight:700;
+  font-size:.92rem;
+}
+
+.tl-text{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+/* ================= QUOTE BOX ================= */
+.quote-box{
+  margin-top:20px;
+  padding:18px 20px;
+  border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;
+  background:rgba(212,175,55,0.08);
+  color:#e0d6c3;
+  font-style:italic;
+  font-size:1.03rem;
+  transition:var(--transition);
+}
+
+.quote-box:hover{
+  background:rgba(212,175,55,0.13);
+  transform:translateX(4px);
+}
+
+/* ================= AWARDS LIST ================= */
+.award-list{
+  list-style:none;
+  margin-top:18px;
+}
+
+.award-list li{
+  padding:12px 16px;
+  margin-bottom:10px;
+  border-left:3px solid var(--gold);
+  border-radius:0 10px 10px 0;
+  background:rgba(212,175,55,0.06);
+  color:var(--muted);
+  transition:var(--transition);
+}
+
+.award-list li:hover{
+  background:rgba(212,175,55,0.12);
+  transform:translateX(4px);
+}
+
+.award-list li strong{
+  color:var(--gold2);
+}
+
+/* ================= PARTNER GRID ================= */
+.partner-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+
+.partner-card{
+  text-align:center;
+  background:rgba(212,175,55,0.08);
+  border:1px solid rgba(212,175,55,0.18);
+  border-radius:16px;
+  padding:18px 16px;
+  transition:var(--transition);
+}
+
+.partner-card:hover{
+  transform:translateY(-5px) scale(1.02);
+  box-shadow:0 14px 30px rgba(212,175,55,0.16);
+}
+
+.partner-card .pname{
+  color:var(--gold2);
+  font-size:1rem;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.partner-card .pstat{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;
+  font-weight:900;
+  color:var(--gold);
+}
+
+.partner-card .pdesc{
+  font-size:.82rem;
+  color:var(--soft);
+  margin-top:4px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  margin-top:40px;
+  text-align:center;
+  padding:28px 20px;
+  background:rgba(10,22,40,0.9);
+  border-top:1px solid rgba(212,175,55,0.2);
+  color:var(--soft);
+  font-size:.9rem;
+}
+
+footer strong{
+  color:var(--gold);
+}
+
+/* =========================================================
+   OPTIONAL SCROLL REVEAL FEEL (WITHOUT JS)
+   Gives sections a better premium feel
+========================================================= */
+section{
+  animation:fadeUpSoft .8s ease both;
+}
+
+@keyframes fadeUpSoft{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE TABLET ================= */
+@media (max-width: 1100px){
+  .main-layout{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .sticky-column{
+    position:relative;
+    top:auto;
+    order:-1;
+  }
+
+  .sticky-image-wrap{
+    min-height:500px;
+  }
+
+  .sec-title{
+    text-align:center;
+  }
+}
+
+/* ================= RESPONSIVE MOBILE ================= */
+@media (max-width: 768px){
+  .hero{
+    min-height:auto;
+    padding:80px 16px 50px;
+  }
+
+  .hero-flag{
+    font-size:2.3rem;
+  }
+
+  .hero-sub{
+    letter-spacing:2px;
+    font-size:.95rem;
+  }
+
+  nav{
+    gap:4px;
+    padding:8px 8px;
+  }
+
+  nav a{
+    font-size:.72rem;
+    padding:7px 10px;
+  }
+
+  .main-layout{
+    padding:30px 14px 60px;
+  }
+
+  section{
+    padding:24px 16px;
+    border-radius:16px;
+  }
+
+  .sticky-card{
+    padding:12px;
+    border-radius:18px;
+  }
+
+  .sticky-image-wrap{
+    min-height:360px;
+    border-radius:14px;
+  }
+
+  .sticky-caption{
+    left:12px;
+    right:12px;
+    bottom:12px;
+    padding:12px;
+  }
+
+  .sticky-caption h3{
+    font-size:1.05rem;
+  }
+
+  .sticky-caption p{
+    font-size:.82rem;
+  }
+
+  .info-grid,
+  .stat-grid,
+  .partner-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stat-box .num{
+    font-size:1.6rem;
+  }
+
+  table{
+    font-size:.82rem;
+    min-width:560px;
+  }
+}
+
+/* ================= EXTRA SMALL MOBILE ================= */
+@media (max-width: 480px){
+  .hero h1{
+    font-size:2rem;
+  }
+
+  .hero-badges{
+    gap:8px;
+  }
+
+  .badge{
+    font-size:.76rem;
+    padding:7px 12px;
+  }
+
+  .sec-title{
+    font-size:1.45rem;
+  }
+
+  .sub-title{
+    font-size:1.1rem;
+  }
+
+  p{
+    font-size:.92rem;
+  }
+}
+/* Section reveal state */
+section{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+section.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Active nav link */
+nav a.active{
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: var(--navy);
+  box-shadow: 0 8px 20px rgba(212,175,55,0.22);
+}
 </style>
 </head>
 <body>
@@ -445,14 +809,10 @@ tr:hover{background:rgba(212,175,55,0.1);}
 <!-- ===== HERO ===== -->
 <div class="hero">
   <div class="hero-flag"> Virat Kohli</div>
-  <div class="hero-sub">The King of Modern Cricket</div>
-  <div class="hero-badges">
-    <span class="badge">🏏 12,000+ ODI Runs</span>
-    <span class="badge">🧢 RCB Captain</span>
-    <span class="badge">⭐ 46+ ODI Centuries</span>
-    <span class="badge">🏆 2011 World Cup Winner</span>
-    <span class="badge">📊 8,000+ IPL Runs</span>
-    <span class="badge">🥇 Padma Shri</span>
+  <br>
+  <br>
+  <div class="hero-sub"> <br>The King of Modern Cricket</div>
+
   </div>
 </div>
 
@@ -1237,51 +1597,242 @@ tr:hover{background:rgba(212,175,55,0.1);}
 
 
 <script>
-// Collapsible toggles
-document.querySelectorAll('.collap-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    btn.classList.toggle('open');
-    const body = btn.nextElementSibling;
-    body.classList.toggle('show');
-  });
-});
+/* =========================================================
+   VIRAT KOHLI PREMIUM CLOUDY STICKY SCROLL PORTFOLIO JS
+   FULL FINAL CLEAN JAVASCRIPT
+   Includes:
+   - Collapsible toggles
+   - Scroll reveal for sections
+   - Animated stat counters
+   - Active nav link on scroll
+   - Smooth nav offset handling
+   - Safe guards for missing elements
+========================================================= */
 
-// Scroll-triggered fade-in for sections
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-},{threshold:0.1});
-document.querySelectorAll('section').forEach(sec=>{
-  observer.observe(sec);
-});
+document.addEventListener('DOMContentLoaded', () => {
+  'use strict';
 
-// Live stat counters
-function animateStat(stat){
-  const target = +stat.getAttribute('data-target');
-  const duration = 2000;
-  let startTime = null;
-  function update(timestamp){
-    if(!startTime) startTime = timestamp;
-    const progress = Math.min((timestamp-startTime)/duration,1);
-    stat.textContent = Math.floor(progress*target);
-    if(progress<1) requestAnimationFrame(update);
-    else stat.textContent = target;
+  /* =========================================================
+     1) COLLAPSIBLE TOGGLES
+  ========================================================= */
+  const collapButtons = document.querySelectorAll('.collap-btn');
+
+  collapButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('open');
+
+      const body = btn.nextElementSibling;
+      if (body && body.classList.contains('collap-body')) {
+        body.classList.toggle('show');
+      }
+    });
+  });
+
+  /* =========================================================
+     2) SECTION SCROLL REVEAL
+     Adds .visible when section enters viewport
+  ========================================================= */
+  const sections = document.querySelectorAll('section');
+
+  if (sections.length > 0) {
+    const sectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // reveal once only
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
+
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
   }
-  requestAnimationFrame(update);
-}
-const statObserver = new IntersectionObserver((entries, obs)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      animateStat(entry.target);
-      obs.unobserve(entry.target);
+
+  /* =========================================================
+     3) LIVE STAT COUNTERS
+     Animate .stat-box .num using data-target
+     Example:
+     <span class="num" data-target="27456">0</span>
+  ========================================================= */
+  const statNumbers = document.querySelectorAll('.stat-box .num');
+
+  function animateStat(stat) {
+    const target = parseInt(stat.getAttribute('data-target'), 10);
+
+    if (isNaN(target)) return;
+
+    const duration = 2000;
+    let startTime = null;
+
+    function update(timestamp) {
+      if (!startTime) startTime = timestamp;
+
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const currentValue = Math.floor(progress * target);
+
+      stat.textContent = currentValue.toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        stat.textContent = target.toLocaleString();
+      }
     }
+
+    requestAnimationFrame(update);
+  }
+
+  if (statNumbers.length > 0) {
+    const statObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateStat(entry.target);
+            observer.unobserve(entry.target); // animate once only
+          }
+        });
+      },
+      {
+        threshold: 0.6
+      }
+    );
+
+    statNumbers.forEach((stat) => {
+      statObserver.observe(stat);
+    });
+  }
+
+  /* =========================================================
+     4) SMOOTH NAV CLICK SCROLL WITH STICKY NAV OFFSET
+     Works for:
+     <nav>
+       <a href="#about">About</a>
+     </nav>
+  ========================================================= */
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  function getNavHeight() {
+    return nav ? nav.offsetHeight : 0;
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+
+      if (!targetId || targetId === '#') return;
+
+      const targetEl = document.querySelector(targetId);
+
+      if (targetEl) {
+        e.preventDefault();
+
+        const navHeight = getNavHeight();
+        const targetPosition =
+          targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
-},{threshold:0.6});
-document.querySelectorAll('.stat-box .num').forEach(stat=>{
-  statObserver.observe(stat);
+
+  /* =========================================================
+     5) ACTIVE NAV LINK HIGHLIGHT ON SCROLL
+     Highlights current section link while scrolling
+  ========================================================= */
+  const pageSections = document.querySelectorAll('section[id]');
+
+  function setActiveNavLink() {
+    if (pageSections.length === 0 || navLinks.length === 0) return;
+
+    const scrollPos = window.scrollY + getNavHeight() + 80;
+    let currentSectionId = '';
+
+    pageSections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove('active');
+
+      const href = link.getAttribute('href');
+      if (href === `#${currentSectionId}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', setActiveNavLink);
+  window.addEventListener('load', setActiveNavLink);
+  window.addEventListener('resize', setActiveNavLink);
+
+  /* =========================================================
+     6) OPTIONAL: PARALLAX FEEL FOR STICKY IMAGE
+     Adds slight translate effect while scrolling
+     (Subtle premium reel-like feeling)
+  ========================================================= */
+  const stickyImage = document.querySelector('.sticky-image-wrap');
+
+  function handleParallax() {
+    if (!stickyImage) return;
+
+    const rect = stickyImage.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top < windowHeight && rect.bottom > 0) {
+      const visibleProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+      const moveY = (visibleProgress - 0.5) * 20; // subtle movement
+      stickyImage.style.transform = `translateY(${moveY}px) scale(1.01)`;
+    }
+  }
+
+  if (stickyImage) {
+    window.addEventListener('scroll', handleParallax, { passive: true });
+    window.addEventListener('load', handleParallax);
+    window.addEventListener('resize', handleParallax);
+  }
+
+  /* =========================================================
+     7) OPTIONAL: AUTO CLOSE OTHER COLLAPSIBLES (ACCORDION STYLE)
+     If you want only one open at a time, enable below.
+     CURRENTLY DISABLED.
+  ========================================================= */
+  /*
+  collapButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      collapButtons.forEach((otherBtn) => {
+        if (otherBtn !== btn) {
+          otherBtn.classList.remove('open');
+          const otherBody = otherBtn.nextElementSibling;
+          if (otherBody && otherBody.classList.contains('collap-body')) {
+            otherBody.classList.remove('show');
+          }
+        }
+      });
+    });
+  });
+  */
+
+  /* =========================================================
+     8) ADD .js-ready CLASS TO BODY
+     Useful if you want CSS behaviors only after JS loads
+  ========================================================= */
+  document.body.classList.add('js-ready');
 });
 
 
